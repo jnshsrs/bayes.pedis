@@ -1,0 +1,28 @@
+{
+  "resourceType": "RiskAssessment",
+  "id": "RESOURCE_ID",
+  "status": "preliminary",
+  "subject": {
+    "reference": "PATIENT_ID"
+  },
+  "occurrenceDateTime": "DATETIME",
+
+  "prediction": [
+    {
+      "outcome": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "397117006:42752001=371087003"
+          }
+        ],
+        "text": "Lower Limb Amputation Procedure due to Diabetic Foot Ulcer"
+      },
+      "probabilityDecimal": "RISK",
+      "whenPeriod": {
+        "start": "DATE_START",
+        "end": "DATE_END"
+      }
+    }
+  ]
+}

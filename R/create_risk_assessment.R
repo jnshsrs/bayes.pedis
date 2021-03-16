@@ -27,7 +27,7 @@ create_risk_assessment <- function(assessment_date, patient_id, risk) {
   date_start <- format(assessment_date, "%Y-%m-%d")
   date_end <- format(assessment_date + lubridate::dmonths(6), "%Y-%m-%d")
 
-  resource <- generate_risk_assessment()
+  resource <- FhirRiskAssessment
   id <- paste0(sample(c(letters, LETTERS, 0:9), size = 40), collapse = "")
 
   resource$id <- id
@@ -38,8 +38,6 @@ create_risk_assessment <- function(assessment_date, patient_id, risk) {
   resource$prediction[[1]]$whenPeriod$end <- date_end
 
   resource$prediction[[1]]$probabilityDecimal <- risk
-
-  # risk_assessment <- jsonlite::toJSON(resource, auto_unbox = TRUE)
 
   return(resource)
 }
@@ -54,7 +52,7 @@ create_risk_assessment <- function(assessment_date, patient_id, risk) {
 #' @return A parsed JSON
 generate_risk_assessment <- function() {
 
-  path <- system.file("fhir-templates", "RiskAssessment_Template.json", package= "bayes.pedis")
+  path <- here::here("fhir-resource-templates", "risk-assessment.json")
   resource <- jsonlite::fromJSON(txt = path, simplifyDataFrame = FALSE, simplifyVector = FALSE)
   return(resource)
 

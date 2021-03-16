@@ -17,6 +17,6 @@ histogramm_posterior <- function(pedis, parameter = param_dist) {
 
   probability <- 1 / (1 + exp(-1 * logit))
 
-  hist(probability, xlim = c(0, 1), main = "Posterior Probability of Amputation", breaks = 75)
+  hist(probability, xlim = c(0, 1), main = "Posterior Probability of Amputation", breaks = 50)
 
 }
